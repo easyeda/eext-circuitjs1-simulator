@@ -2,7 +2,7 @@
   "name": "eext-circuitjs1-simulator",
   "uuid": "a3b7c9d1e5f2a4b6c8d0e2f4a6b8c0d2",
   "displayName": "CircuitJS1",
-  "description": "CircuitJS1电路仿真器，让你在EDA中进行简单的电路动态效果仿真，支持一键导出到原理图",
+  "description": "circuitjs1.extension.description",
   "version": "1.4.1",
   "publisher": "EasyEDA",
   "engines": {

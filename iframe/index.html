@@ -59754,6 +59754,13 @@ $gwt && $gwt.permProps && __gwtModuleFunction.__moduleStartupDone($gwt.permProps
 
 <script>
 (function(){
+  // === i18n ===
+  var edaObj = (typeof eda !== 'undefined') ? eda : (window.parent && window.parent.eda) ? window.parent.eda : null;
+  function t(tag) {
+	  if (edaObj && edaObj.sys_I18n) { return edaObj.sys_I18n.text(tag); }
+	  return tag;
+  }
+
   // === 导出到立创EDA ===
   var DEVICE_MAP = {
     "r": {kind:"device",pf:"R",search:"\u8D34\u7247\u7535\u963B 0805",pins:2},
@@ -59793,16 +59800,16 @@ $gwt && $gwt.permProps && __gwtModuleFunction.__moduleStartupDone($gwt.permProps
     try{
       if(typeof eda==="undefined"){alert("EDA API not available");return}
       var di=await eda.dmt_SelectControl.getCurrentDocumentInfo();
-      if(!di||di.documentType!==1){await eda.sys_Dialog.showInformationMessage("\u8BF7\u5148\u6253\u5F00\u539F\u7406\u56FE");return}
+      if(!di||di.documentType!==1){await eda.sys_Dialog.showInformationMessage(t('circuitjs1.msg.notSchematic'));return}
       if(!window.CircuitJS1||!window.CircuitJS1.exportCircuit){alert("CircuitJS1 not ready");return}
       var text=window.CircuitJS1.exportCircuit();
       if(!text){alert("No circuit");return}
 
       // 弹个toast提示一下
-      await eda.sys_Message.showToastMessage("\u6B63\u5728\u5BFC\u51FA\u4E2D\uFF0C\u8BF7\u7B49\u5F85...", 5);
+      await eda.sys_Message.showToastMessage(t('circuitjs1.msg.exporting'), 5);
 
       // 兼容新版API的调用方式
-      try{eda.sys_Message.showToastMessage("\u6B63\u5728\u5BFC\u51FA\u4E2D\uFF0C\u8BF7\u7B49\u5F85...","info",5)}catch(e){}
+      try{eda.sys_Message.showToastMessage(t('circuitjs1.msg.exporting'),"info",5)}catch(e){}
 
       var items=parseXML(text);
       await placeItems(items);
@@ -59899,7 +59906,7 @@ $gwt && $gwt.permProps && __gwtModuleFunction.__moduleStartupDone($gwt.permProps
       }
 
       if(typeof eda.dmt_EditorControl!=="undefined"&&eda.dmt_EditorControl.zoomToAllPrimitives){await eda.dmt_EditorControl.zoomToAllPrimitives()}
-      try{eda.sys_Message.showToastMessage("\u5BFC\u51FA\u5B8C\u6210\uFF0C\u5EFA\u8BAE\u8FDB\u884C\u5668\u4EF6\u6807\u51C6\u5316\u5E76\u6838\u5B9E\u5668\u4EF6\u4FE1\u606F\u3002","success",5)}catch(e){}
+      try{eda.sys_Message.showToastMessage(t('circuitjs1.msg.exportDone'),"success",5)}catch(e){}
     }catch(e){console.error("[Export]",e)}
   }
 

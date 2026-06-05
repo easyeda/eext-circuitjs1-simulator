@@ -1,5 +1,10 @@
 {
 	"About...": "About...",
 	"circuitjs1.menu.title": "CircuitJS1",
-	"circuitjs1.menu.open": "Open CircuitJS1..."
+	"circuitjs1.menu.open": "Open CircuitJS1...",
+	"circuitjs1.extension.description": "CircuitJS1 circuit simulator, allows simple dynamic circuit simulation in EDA, with one-click export to schematic",
+	"circuit": "circuit",
+	"simulator": "simulator",
+	"simulation": "simulation",
+	"circuitjs1": "circuitjs1"
 }
