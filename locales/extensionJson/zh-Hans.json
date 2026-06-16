@@ -1,8 +1,8 @@
 {
 	"About...": "关于...",
-	"circuitjs1.menu.title": "CircuitJS1",
-	"circuitjs1.menu.open": "打开CircuitJS1...",
-	"circuitjs1.extension.description": "CircuitJS1电路仿真器，让你在EDA中进行简单的电路动态效果仿真，支持一键导出到原理图",
+	"CircuitJS1": "CircuitJS1",
+	"打开CircuitJS1...": "打开CircuitJS1...",
+	"CircuitJS1电路仿真器，让你在EDA中进行简单的电路动态效果仿真，支持一键导出到原理图": "CircuitJS1电路仿真器，让你在EDA中进行简单的电路动态效果仿真，支持一键导出到原理图",
 	"circuit": "circuit",
 	"simulator": "simulator",
 	"simulation": "simulation",

@@ -59800,16 +59800,16 @@ $gwt && $gwt.permProps && __gwtModuleFunction.__moduleStartupDone($gwt.permProps
     try{
       if(typeof eda==="undefined"){alert("EDA API not available");return}
       var di=await eda.dmt_SelectControl.getCurrentDocumentInfo();
-      if(!di||di.documentType!==1){await eda.sys_Dialog.showInformationMessage(t('circuitjs1.msg.notSchematic'));return}
+      if(!di||di.documentType!==1){await eda.sys_Dialog.showInformationMessage(t('请先打开原理图文档'));return}
       if(!window.CircuitJS1||!window.CircuitJS1.exportCircuit){alert("CircuitJS1 not ready");return}
       var text=window.CircuitJS1.exportCircuit();
       if(!text){alert("No circuit");return}
 
       // 弹个toast提示一下
-      await eda.sys_Message.showToastMessage(t('circuitjs1.msg.exporting'), 5);
+      await eda.sys_Message.showToastMessage(t('正在导出电路到原理图...'), 5);
 
       // 兼容新版API的调用方式
-      try{eda.sys_Message.showToastMessage(t('circuitjs1.msg.exporting'),"info",5)}catch(e){}
+      try{eda.sys_Message.showToastMessage(t('正在导出电路到原理图...'),"info",5)}catch(e){}
 
       var items=parseXML(text);
       await placeItems(items);
@@ -59906,7 +59906,7 @@ $gwt && $gwt.permProps && __gwtModuleFunction.__moduleStartupDone($gwt.permProps
       }
 
       if(typeof eda.dmt_EditorControl!=="undefined"&&eda.dmt_EditorControl.zoomToAllPrimitives){await eda.dmt_EditorControl.zoomToAllPrimitives()}
-      try{eda.sys_Message.showToastMessage(t('circuitjs1.msg.exportDone'),"success",5)}catch(e){}
+      try{eda.sys_Message.showToastMessage(t('导出完成，建议进行器件标准化并核实器件信息。'),"success",5)}catch(e){}
     }catch(e){console.error("[Export]",e)}
   }
 
